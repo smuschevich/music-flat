@@ -1,0 +1,9 @@
+description = 'The application persistence'
+
+def hibernateVersion = '5.1.0.Final'
+
+dependencies {
+	// Hibernate
+	compile "org.hibernate:hibernate-core:$hibernateVersion"
+	compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
+}

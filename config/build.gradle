@@ -1,0 +1,5 @@
+description = 'The application configuration'
+
+dependencies {
+	compile project(':music-flat-remote-services')
+}

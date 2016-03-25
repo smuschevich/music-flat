@@ -1,0 +1,38 @@
+allprojects {
+	group = 'com.intexsoft.music-flat'
+	version = '1.0.0'
+}
+
+subprojects {
+	apply plugin: 'java'
+	
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	
+	def springVersion = '4.2.5.RELEASE'
+	def springBootVersion = '1.3.3.RELEASE'
+	def commonsIoVersion = '2.4'
+	def servletApiVersion = '3.1.0'
+	def tomcatVersion = '8.0.32'
+
+	repositories {
+		mavenCentral()
+	}
+	
+	dependencies {
+		// Spring Boot
+		compile "org.springframework.boot:spring-boot-starter-security:$springBootVersion"
+		compile "org.springframework:spring-webmvc:$springVersion"
+		
+		// Apache Commons
+		compile "commons-io:commons-io:$commonsIoVersion"
+
+		// servlet container
+		compile "javax.servlet:javax.servlet-api:$servletApiVersion"
+		testCompile "org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion"
+		testCompile "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion"
+		testCompile "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion"
+		testCompile "org.apache.tomcat.embed:tomcat-embed-el:$tomcatVersion"
+		testCompile "org.apache.tomcat.embed:tomcat-embed-websocket:$tomcatVersion"
+	}
+}

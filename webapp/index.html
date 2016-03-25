@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Music Flat</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="images/favicon.png">
+	<link rel="stylesheet" href="styles/bootstrap.css">
+	<link rel="stylesheet" href="styles/main.css">
+
+	<!-- 1. Load libraries -->
+	<!-- IE required polyfills, in this exact order -->
+	<script src="scripts/es6-shim.min.js"></script>
+	<script src="scripts/system-polyfills.js"></script>
+	<script src="scripts/shims_for_IE.js"></script>
+
+	<script src="scripts/angular2-polyfills.js"></script>
+	<script src="scripts/system.src.js"></script>
+	<script src="scripts/Rx.js"></script>
+	<script src="scripts/angular2.dev.js"></script>
+	<script src="scripts/router.dev.js"></script>
+	<script src="scripts/http.dev.js"></script>
+
+	<!-- 2. Configure SystemJS -->
+	<script>
+		System.config({
+			packages: {
+				app: {
+					format: 'register',
+					defaultExtension: 'js'
+				}
+			}
+		});
+		System.import('app/Bootstrap')
+				.then(null, console.error.bind(console));
+	</script>
+</head>
+
+<!-- 3. Display the application -->
+<body>
+	<music-flat-app>Loading...</music-flat-app>
+</body>
+</html>

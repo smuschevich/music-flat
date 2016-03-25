@@ -1,0 +1,27 @@
+.container-login {
+    position: relative;
+}
+.background-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    opacity: 0.2;
+}
+.form-login {
+    position: relative;
+    padding: 20px;
+}
+.form-group-welcome {
+    color: #ccc;
+}
+.btn-login {
+    margin-right: 10px;
+    width: 50%;
+}
+.link-sign-up:hover,
+.link-sign-up:focus {
+    color: #aaa;
+}

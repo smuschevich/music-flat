@@ -1,0 +1,11 @@
+rootProject.name = 'music-flat'
+
+include ':music-flat-config'
+include ':music-flat-persistence'
+include ':music-flat-remote-services'
+include ':music-flat-webapp'
+
+project(':music-flat-config').projectDir = "$rootDir/config" as File
+project(':music-flat-persistence').projectDir = "$rootDir/persistence" as File
+project(':music-flat-remote-services').projectDir = "$rootDir/remote-services" as File
+project(':music-flat-webapp').projectDir = "$rootDir/webapp" as File

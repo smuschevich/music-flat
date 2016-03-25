@@ -1,0 +1,29 @@
+.background-home {
+    background-image: url('/images/home-background.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.navbar-home {
+    background: 0;
+    border: 0;
+    margin: 30px 300px;
+}
+.navbar-home .navbar-nav > li > a {
+    color: #ccc;
+}
+.navbar-home .navbar-nav > li > a:hover,
+.navbar-home .navbar-nav > li > a:focus {
+    color: #333;
+}
+.header-welcome {
+    margin-top: 200px;
+    color: #ccc;
+    opacity: 0.9;
+}
+.row-login {
+    margin-top: 470px;
+}
