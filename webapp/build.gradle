@@ -18,7 +18,7 @@ node {
 	workDir = file("${project.buildDir}/nodejs")
 }
 
-task npmStart(type: NpmTask) {
+task npmStart(type: NpmTask, dependsOn: npmInstall) {
 	args = ['start']
 }
 
