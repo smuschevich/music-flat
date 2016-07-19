@@ -6,38 +6,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="images/favicon.png">
 	<link rel="stylesheet" href="styles/bootstrap.css">
-	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/app.css">
 
+	<!-- build:js scripts/vendor.js -->
 	<!-- 1. Load libraries -->
-	<!-- IE required polyfills, in this exact order -->
-	<script src="scripts/es6-shim.min.js"></script>
-	<script src="scripts/system-polyfills.js"></script>
-	<script src="scripts/shims_for_IE.js"></script>
+	<!-- Polyfill(s) for older browsers -->
+	<script src="node_modules/core-js/client/shim.min.js"></script>
 
-	<script src="scripts/angular2-polyfills.js"></script>
-	<script src="scripts/system.src.js"></script>
-	<script src="scripts/Rx.js"></script>
-	<script src="scripts/angular2.dev.js"></script>
-	<script src="scripts/router.dev.js"></script>
-	<script src="scripts/http.dev.js"></script>
-
-	<!-- 2. Configure SystemJS -->
-	<script>
-		System.config({
-			packages: {
-				app: {
-					format: 'register',
-					defaultExtension: 'js'
-				}
-			}
-		});
-		System.import('app/Bootstrap')
-				.then(null, console.error.bind(console));
-	</script>
+	<!-- SystemJS and its dependencies (also used by angular2) -->
+	<script src="node_modules/reflect-metadata/Reflect.js"></script>
+	<script src="node_modules/zone.js/dist/zone.js"></script>
+	<!-- endbuild -->
+	<!-- build:remove -->
+	<script src="node_modules/systemjs/dist/system.src.js"></script>
+	<!-- endbuild -->
 </head>
 
-<!-- 3. Display the application -->
 <body>
+	<!-- 2. Display the application -->
 	<music-flat-app>Loading...</music-flat-app>
+
+	<!-- build:js scripts/app.js -->
+	<!-- 3. Configure SystemJS -->
+	<script src="systemjs.config.js"></script>
+	<script>
+		System.import('app')
+				.then(null, console.error.bind(console));
+	</script>
+	<!-- endbuild -->
 </body>
 </html>

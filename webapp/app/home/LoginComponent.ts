@@ -1,7 +1,8 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {SecurityService} from '../common/service/SecurityService';
 import {Credentials} from '../common/model/Credentials';
-import {Router} from 'angular2/router';
+import {Router} from '@angular/router-deprecated';
+import {REST_API_URL} from '../AppConstants';
 
 @Component({
 	selector: 'login',
@@ -10,6 +11,8 @@ import {Router} from 'angular2/router';
 })
 export class LoginComponent {
 	credentials = new Credentials();
+	facebookLoginUrl = REST_API_URL + '/security/login/facebook';
+	gitHubLoginUrl = REST_API_URL + '/security/login/github';
 
 	constructor (private securityService: SecurityService, private router: Router) {
 	}

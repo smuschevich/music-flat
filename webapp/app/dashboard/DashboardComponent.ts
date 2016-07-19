@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {SecurityService} from '../common/service/SecurityService';
-import {Router} from 'angular2/router';
+import {Router} from '@angular/router-deprecated';
 
 @Component({
 	selector: 'dashboard',

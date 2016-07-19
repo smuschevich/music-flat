@@ -1,5 +1,5 @@
-import {Directive, ElementRef, DynamicComponentLoader} from 'angular2/core';
-import {RouterOutlet, Router, ComponentInstruction} from 'angular2/router';
+import {Directive, ViewContainerRef, DynamicComponentLoader} from '@angular/core';
+import {RouterOutlet, Router, ComponentInstruction} from '@angular/router-deprecated';
 import {SecurityService} from './common/service/SecurityService';
 
 @Directive({
@@ -13,13 +13,13 @@ export class LoggedInRouterOutlet extends RouterOutlet {
 	private static AUTHORIZED_ROUTE = 'dashboard';
 
 	constructor(
-		_elementRef: ElementRef,
+		_viewContainerRef: ViewContainerRef,
 		_loader: DynamicComponentLoader,
 		private parentRouter: Router,
 		nameAttr: string,
 		private securityService: SecurityService) {
 
-		super(_elementRef, _loader, parentRouter, nameAttr);
+		super(_viewContainerRef, _loader, parentRouter, nameAttr);
 	}
 
 	activate(nextInstruction: ComponentInstruction): Promise<any> {

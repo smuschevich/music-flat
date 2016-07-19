@@ -11,6 +11,7 @@ subprojects {
 	
 	def springVersion = '4.2.5.RELEASE'
 	def springBootVersion = '1.3.3.RELEASE'
+	def oauthVersion = '2.0.9.RELEASE'
 	def commonsIoVersion = '2.4'
 	def servletApiVersion = '3.1.0'
 	def tomcatVersion = '8.0.32'
@@ -23,6 +24,8 @@ subprojects {
 		// Spring Boot
 		compile "org.springframework.boot:spring-boot-starter-security:$springBootVersion"
 		compile "org.springframework:spring-webmvc:$springVersion"
+		// OAuth2
+		compile "org.springframework.security.oauth:spring-security-oauth2:$oauthVersion"
 		
 		// Apache Commons
 		compile "commons-io:commons-io:$commonsIoVersion"

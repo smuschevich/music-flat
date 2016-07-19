@@ -1,4 +1,4 @@
-import {Http, RequestOptionsArgs, Response} from 'angular2/http';
+import {Http, RequestOptionsArgs, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {REST_API_URL} from '../../AppConstants';
 import {RestResponse} from '../model/RestResponce';

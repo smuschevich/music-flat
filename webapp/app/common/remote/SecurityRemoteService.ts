@@ -1,6 +1,6 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {BaseRemoteService} from './BaseRemoteService';
-import {Http, URLSearchParams} from 'angular2/http';
+import {Http, URLSearchParams} from '@angular/http';
 import {Credentials} from '../model/Credentials';
 import 'rxjs/Rx';
 

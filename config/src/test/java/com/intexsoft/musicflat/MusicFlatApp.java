@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.apache.tomcat.websocket.server.WsSci;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Import;
 import com.intexsoft.musicflat.config.WebAppInitializer;
 
 @Configuration
+@SpringBootApplication
 @Import(WebAppInitializer.class)
 public class MusicFlatApp
 {

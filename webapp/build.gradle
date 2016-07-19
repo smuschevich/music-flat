@@ -22,4 +22,8 @@ task npmStart(type: NpmTask, dependsOn: npmInstall) {
 	args = ['start']
 }
 
+task npmBundle(type: NpmTask, dependsOn: npmInstall) {
+	args = ['run-script', 'bundle']
+}
+
 compileJava.dependsOn npmInstall

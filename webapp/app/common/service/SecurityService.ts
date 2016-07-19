@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {SecurityRemoteService} from '../remote/SecurityRemoteService';
 import {Credentials} from '../model/Credentials';
 
