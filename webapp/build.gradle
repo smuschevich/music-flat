@@ -5,6 +5,11 @@ plugins {
 description = 'The web application assets'
 
 apply plugin: 'com.moowork.node'
+apply plugin: 'war'
+
+dependencies {
+	compile project(':music-flat-config')
+}
 
 node {
 	version = '4.4.0'
@@ -26,4 +31,8 @@ task npmBundle(type: NpmTask, dependsOn: npmInstall) {
 	args = ['run-script', 'bundle']
 }
 
-compileJava.dependsOn npmInstall
+compileJava.dependsOn npmBundle
+
+war {
+	from('dist')
+}

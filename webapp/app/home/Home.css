@@ -1,5 +1,5 @@
 .background-home {
-    background-image: url('/images/home-background.jpg');
+    background-image: url('images/home-background.jpg');
     background-size: cover;
     position: absolute;
     top: 0;

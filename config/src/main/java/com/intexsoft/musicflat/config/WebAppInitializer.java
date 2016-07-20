@@ -1,6 +1,7 @@
 package com.intexsoft.musicflat.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+@SpringBootApplication
 @Import(AppConfig.class)
 public class WebAppInitializer extends SpringBootServletInitializer
 {
@@ -21,6 +23,8 @@ public class WebAppInitializer extends SpringBootServletInitializer
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder)
 	{
+		// errors should be handled via a servlet container and not via spring boot (required for proper work of OAuth)
+		setRegisterErrorPageFilter(false);
 		return builder.sources(WebAppInitializer.class);
 	}
 

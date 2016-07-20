@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -30,8 +31,8 @@ import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResour
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CompositeFilter;
@@ -51,17 +52,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	private OAuth2ClientContext oauth2ClientContext;
 
 	@Override
+	public void configure(WebSecurity web) throws Exception
+	{
+		web.ignoring()
+			.antMatchers("/images/**")
+			.antMatchers("/**/*.{js,css,html}");
+	}
+
+	@Override
 	protected void configure(HttpSecurity http) throws Exception
 	{
 		http
 			// LogoutFilter and UsernamePasswordAuthenticationFilter do not continue a chain in case of success login/logout
 			.addFilterBefore(corsFilter(), LogoutFilter.class)
-			.addFilterBefore(ssoCompositeFilter(), BasicAuthenticationFilter.class)
+			.addFilterBefore(ssoCompositeFilter(), UsernamePasswordAuthenticationFilter.class)
 			.csrf().disable()
 			.authorizeRequests()
 			.antMatchers(HttpMethod.OPTIONS, "/service/**").permitAll()
 			.antMatchers("/service/security/**").permitAll()
-			.anyRequest().authenticated()
+			.antMatchers("/service/**").authenticated()
 		.and()
 			.formLogin()
 			.loginProcessingUrl("/service/security/login")
